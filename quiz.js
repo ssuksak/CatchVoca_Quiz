@@ -1,6 +1,6 @@
 /**
- * CatchVoca Mobile Quiz - Firebase Version with SM-2 Algorithm
- * Implements identical learning logic as PC Chrome Extension
+ * CatchVoca Mobile Quiz - Firebase Version
+ * SM-2 알고리즘: sm2.js 참고
  */
 
 // ============================================================================
@@ -13,107 +13,10 @@ let showingAnswer = false;
 let firebaseApp = null;
 let database = null;
 let quizId = null;
-let userId = null; // User ID from URL parameter
-let reviewStates = {}; // SM-2 algorithm states: { wordId: ReviewState }
+let userId = null;
+let reviewStates = {};
 let auth = null;
 let currentUser = null;
-
-// ============================================================================
-// SM-2 Algorithm Configuration & Implementation
-// ============================================================================
-
-/**
- * SM-2 알고리즘 설정
- */
-const SM2_CONFIG = {
-  minEaseFactor: 1.3,
-  maxEaseFactor: 2.5,
-  firstInterval: 1,    // 1일
-  secondInterval: 6,   // 6일
-};
-
-/**
- * Rating enum (1-5)
- */
-const Rating = {
-  Again: 1,      // 완전히 못 외움
-  Hard: 2,       // 어렵게 기억
-  Good: 3,       // 보통
-  Easy: 4,       // 쉽게 기억
-  VeryEasy: 5,   // 매우 쉽게 기억 (UI에서는 사용 안 함)
-};
-
-/**
- * SM-2 알고리즘을 사용하여 다음 복습 일정 계산
- * @param {Object} currentState - 현재 복습 상태
- * @param {number} rating - 사용자의 평가 (1-5)
- * @returns {Object} 다음 복습 일정 정보
- */
-function calculateNextReview(currentState, rating) {
-  let { interval, easeFactor, repetitions } = currentState;
-
-  // 1. EaseFactor 계산
-  // EF' = EF + (0.1 - (5 - q) * (0.08 + (5 - q) * 0.02))
-  const newEaseFactor = Math.max(
-    SM2_CONFIG.minEaseFactor,
-    Math.min(
-      SM2_CONFIG.maxEaseFactor,
-      easeFactor + (0.1 - (5 - rating) * (0.08 + (5 - rating) * 0.02))
-    )
-  );
-
-  // 2. 평가에 따른 간격 및 반복 횟수 계산
-  let newInterval;
-  let newRepetitions;
-
-  if (rating < Rating.Good) {
-    // Rating이 Good(3) 미만이면 처음부터 다시 시작
-    newInterval = SM2_CONFIG.firstInterval;
-    newRepetitions = 0;
-  } else {
-    // Rating이 Good(3) 이상이면 성공
-    newRepetitions = repetitions + 1;
-
-    if (newRepetitions === 1) {
-      // 첫 번째 성공 복습
-      newInterval = SM2_CONFIG.firstInterval;
-    } else if (newRepetitions === 2) {
-      // 두 번째 성공 복습
-      newInterval = SM2_CONFIG.secondInterval;
-    } else {
-      // 세 번째 이후 성공 복습
-      // I(n) = I(n-1) * EF
-      newInterval = Math.round(interval * newEaseFactor);
-    }
-  }
-
-  // 3. 다음 복습 시각 계산
-  const now = Date.now();
-  const nextReviewAt = now + newInterval * 24 * 60 * 60 * 1000;
-
-  return {
-    nextReviewAt,
-    interval: newInterval,
-    easeFactor: newEaseFactor,
-    repetitions: newRepetitions,
-  };
-}
-
-/**
- * 초기 ReviewState 생성
- * @param {string} wordId - 단어 ID
- * @returns {Object} 초기 ReviewState
- */
-function createInitialReviewState(wordId) {
-  const now = Date.now();
-  return {
-    wordId,
-    nextReviewAt: now, // 저장 즉시 복습 가능
-    interval: SM2_CONFIG.firstInterval,
-    easeFactor: 2.5, // 초기 난이도 계수
-    repetitions: 0,
-  };
-}
 
 // ============================================================================
 // Firebase Initialization

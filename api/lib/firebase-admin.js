@@ -47,7 +47,7 @@ export function getAdminApp() {
         clientEmail,
         privateKey: formattedPrivateKey,
       }),
-      databaseURL: 'https://catchvoca-6c9a8-default-rtdb.asia-southeast1.firebasedatabase.app',
+      databaseURL: 'https://catchvoca-49f67-default-rtdb.asia-southeast1.firebasedatabase.app',
     });
 
     console.log('[Firebase Admin] Initialized successfully', { projectId });

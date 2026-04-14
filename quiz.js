@@ -135,10 +135,16 @@ function showError(mainMessage, detailMessage = '') {
   document.getElementById('error').style.display = 'flex';
 
   const errorMessageEl = document.getElementById('error-message');
-  errorMessageEl.innerHTML = `<strong>${mainMessage}</strong>`;
+  errorMessageEl.textContent = '';
+  const strong = document.createElement('strong');
+  strong.textContent = mainMessage;
+  errorMessageEl.appendChild(strong);
 
   if (detailMessage) {
-    errorMessageEl.innerHTML += `<br><small>${detailMessage}</small>`;
+    errorMessageEl.appendChild(document.createElement('br'));
+    const small = document.createElement('small');
+    small.textContent = detailMessage;
+    errorMessageEl.appendChild(small);
   }
 }
 
@@ -263,7 +269,11 @@ function renderDefinitions(definitions) {
 
   definitions.forEach((def, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="def-number">${index + 1}.</span> ${def}`;
+    const numberSpan = document.createElement('span');
+    numberSpan.className = 'def-number';
+    numberSpan.textContent = `${index + 1}.`;
+    li.appendChild(numberSpan);
+    li.appendChild(document.createTextNode(` ${def}`));
     definitionsList.appendChild(li);
   });
 }
@@ -491,17 +501,35 @@ function showCompletionMessage() {
   const reviewedCount = Object.keys(reviewStates).length;
 
   const card = document.querySelector('.card');
-  card.innerHTML = `
-    <div class="completion-message">
-      <div class="emoji">🎉</div>
-      <h2>Quiz Complete!</h2>
-      <p>You've reviewed ${reviewedCount} words out of ${words.length}.</p>
-      <p class="subtitle">Great job! Keep practicing to improve retention.</p>
-      <button class="btn btn-primary" onclick="location.reload()">
-        Restart Quiz
-      </button>
-    </div>
-  `;
+  card.textContent = '';
+  const completionDiv = document.createElement('div');
+  completionDiv.className = 'completion-message';
+
+  const emoji = document.createElement('div');
+  emoji.className = 'emoji';
+  emoji.textContent = '\u{1F389}';
+  completionDiv.appendChild(emoji);
+
+  const h2 = document.createElement('h2');
+  h2.textContent = 'Quiz Complete!';
+  completionDiv.appendChild(h2);
+
+  const p1 = document.createElement('p');
+  p1.textContent = `You've reviewed ${reviewedCount} words out of ${words.length}.`;
+  completionDiv.appendChild(p1);
+
+  const p2 = document.createElement('p');
+  p2.className = 'subtitle';
+  p2.textContent = 'Great job! Keep practicing to improve retention.';
+  completionDiv.appendChild(p2);
+
+  const btn = document.createElement('button');
+  btn.className = 'btn btn-primary';
+  btn.textContent = 'Restart Quiz';
+  btn.addEventListener('click', () => location.reload());
+  completionDiv.appendChild(btn);
+
+  card.appendChild(completionDiv);
 
   document.querySelector('.controls').style.display = 'none';
 }

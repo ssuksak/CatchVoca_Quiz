@@ -9,6 +9,18 @@
 import { adminAuth, adminDb } from '../../lib/firebase-admin.js';
 
 export default async function handler(req, res) {
+  // CORS headers
+  const origin = req.headers.origin;
+  if (origin && origin.startsWith('chrome-extension://')) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow GET requests
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -21,18 +33,10 @@ export default async function handler(req, res) {
       return res.status(401).json({ error: 'Missing or invalid authorization header' });
     }
 
-    // Extract and decode custom token
-    const customToken = authHeader.substring(7);
-
-    // Custom tokens are JWTs - decode the payload
-    const tokenParts = customToken.split('.');
-    if (tokenParts.length !== 3) {
-      return res.status(401).json({ error: 'Invalid token format' });
-    }
-
-    // Decode JWT payload (base64url decode)
-    const payload = JSON.parse(Buffer.from(tokenParts[1], 'base64').toString());
-    const userId = payload.uid || payload.sub;
+    // Verify Firebase ID Token (secure signature verification)
+    const idToken = authHeader.substring(7);
+    const decodedToken = await adminAuth.verifyIdToken(idToken);
+    const userId = decodedToken.uid;
 
     if (!userId) {
       return res.status(401).json({ error: 'Invalid token: missing uid' });

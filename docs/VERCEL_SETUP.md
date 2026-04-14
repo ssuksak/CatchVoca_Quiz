@@ -9,7 +9,7 @@
 3. 왼쪽 메뉴 → ⚙️ **프로젝트 설정**
 4. **서비스 계정** 탭 클릭
 5. **새 비공개 키 생성** 버튼 클릭
-6. JSON 파일 다운로드 (예: `catchvoca-6c9a8-firebase-adminsdk-xxxxx.json`)
+6. JSON 파일 다운로드 (예: `catchvoca-49f67-firebase-adminsdk-xxxxx.json`)
 
 ⚠️ **주의**: 이 JSON 파일은 절대 Git에 커밋하지 마세요!
 
@@ -20,10 +20,10 @@
 ```json
 {
   "type": "service_account",
-  "project_id": "catchvoca-6c9a8",
+  "project_id": "catchvoca-49f67",
   "private_key_id": "...",
   "private_key": "-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n",
-  "client_email": "firebase-adminsdk-xxxxx@catchvoca-6c9a8.iam.gserviceaccount.com",
+  "client_email": "firebase-adminsdk-xxxxx@catchvoca-49f67.iam.gserviceaccount.com",
   "client_id": "...",
   "auth_uri": "...",
   "token_uri": "...",
@@ -44,8 +44,8 @@
 `CatchVoca_Quiz` 폴더에 `.env.local` 파일을 생성하고 다음 내용을 입력:
 
 ```bash
-FIREBASE_PROJECT_ID=catchvoca-6c9a8
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@catchvoca-6c9a8.iam.gserviceaccount.com
+FIREBASE_PROJECT_ID=catchvoca-49f67
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@catchvoca-49f67.iam.gserviceaccount.com
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n실제키내용\n-----END PRIVATE KEY-----\n"
 ALLOWED_ORIGIN=chrome-extension://
 ```
@@ -85,7 +85,7 @@ curl -X OPTIONS http://localhost:3000/api/auth/exchange-token -v
 
 | Variable Name | Value | Environments |
 |---------------|-------|--------------|
-| `FIREBASE_PROJECT_ID` | `catchvoca-6c9a8` | Production, Preview, Development |
+| `FIREBASE_PROJECT_ID` | `catchvoca-49f67` | Production, Preview, Development |
 | `FIREBASE_CLIENT_EMAIL` | `firebase-adminsdk-xxxxx@...` | Production, Preview, Development |
 | `FIREBASE_PRIVATE_KEY` | `"-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"` | Production, Preview, Development |
 
@@ -190,7 +190,7 @@ Vercel Dashboard → 프로젝트 → **Logs** 탭
 
 다음과 같은 로그가 보여야 합니다:
 ```
-[Firebase Admin] Initialized successfully { projectId: 'catchvoca-6c9a8' }
+[Firebase Admin] Initialized successfully { projectId: 'catchvoca-49f67' }
 [Exchange Token] Verifying Google Access Token...
 [Exchange Token] User verified: { id: '123456789', email: 'user@example.com' }
 [Exchange Token] Creating Firebase Custom Token... { uid: 'google:123456789' }

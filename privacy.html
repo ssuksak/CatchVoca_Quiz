@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CatchVoca 개인정보처리방침</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+      background: #f8f9fa;
+      color: #212529;
+      line-height: 1.7;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      padding: 40px 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #4F46E5, #7C3AED);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1F2937;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-bottom: 8px;
+    }
+
+    .effective-date {
+      font-size: 14px;
+      color: #6B7280;
+      margin-bottom: 32px;
+    }
+
+    .intro {
+      background: #F0F4FF;
+      border-left: 4px solid #4F46E5;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1F2937;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #E5E7EB;
+    }
+
+    h2:first-of-type {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 15px;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li {
+      font-size: 15px;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ECFDF5;
+      color: #065F46;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    .badge.warning {
+      background: #FFFBEB;
+      color: #92400E;
+    }
+
+    .badge.info {
+      background: #EFF6FF;
+      color: #1E40AF;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .data-table th {
+      background: #F9FAFB;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      color: #374151;
+      border: 1px solid #E5E7EB;
+    }
+
+    .data-table td {
+      padding: 10px 14px;
+      border: 1px solid #E5E7EB;
+      color: #4B5563;
+      vertical-align: top;
+    }
+
+    .data-table tr:hover td {
+      background: #F9FAFB;
+    }
+
+    .highlight-box {
+      background: #F9FAFB;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .contact-box {
+      background: #F0F4FF;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-top: 12px;
+    }
+
+    .contact-box p {
+      margin-bottom: 4px;
+    }
+
+    .contact-box a {
+      color: #4F46E5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #E5E7EB;
+      font-size: 13px;
+      color: #9CA3AF;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 16px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      h2 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <div class="logo-icon">📚</div>
+      <span class="logo-text">CatchVoca</span>
+    </div>
+
+    <h1>개인정보처리방침</h1>
+    <p class="effective-date">시행일: 2025년 1월 1일 · 최종 수정: 2026년 4월 16일</p>
+
+    <div class="intro">
+      CatchVoca(이하 "본 서비스")는 사용자의 개인정보를 소중히 여기며, 개인정보 보호를 위해 최선을 다하고 있습니다.
+      본 방침은 CatchVoca Chrome 확장 프로그램을 사용할 때 수집되는 정보와 그 처리 방식에 대해 설명합니다.
+    </div>
+
+    <!-- 1. 수집하는 정보 -->
+    <h2>1. 수집하는 정보</h2>
+    <p>CatchVoca는 서비스 제공을 위해 다음과 같은 정보를 수집합니다.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>항목</th>
+          <th>수집 방법</th>
+          <th>저장 위치</th>
+          <th>목적</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>사용자가 저장한 단어</td>
+          <td>사용자 직접 저장</td>
+          <td>기기 내 IndexedDB</td>
+          <td>단어 학습 및 복습</td>
+        </tr>
+        <tr>
+          <td>복습 상태 (SM-2 알고리즘 데이터)</td>
+          <td>학습 진행 시 자동 생성</td>
+          <td>기기 내 IndexedDB</td>
+          <td>간격 반복 학습 스케줄 관리</td>
+        </tr>
+        <tr>
+          <td>앱 설정 정보</td>
+          <td>사용자 설정 변경 시</td>
+          <td>기기 내 Chrome 로컬 스토리지</td>
+          <td>사용자 환경 설정 유지</td>
+        </tr>
+        <tr>
+          <td>페이지 텍스트 (일시적)</td>
+          <td>AI 분석 버튼 클릭 시</td>
+          <td>전송 후 즉시 폐기</td>
+          <td>단어 추천을 위한 AI 분석</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight-box">
+      <p>
+        <span class="badge">로컬 우선</span>
+        단어, 복습 상태, 설정 데이터는 기본적으로 사용자의 기기에만 저장됩니다.
+        서버로 전송되지 않으며, 오프라인 환경에서도 완전히 동작합니다.
+      </p>
+    </div>
+
+    <!-- 2. 클라우드 동기화 -->
+    <h2>2. 클라우드 동기화 (선택 사항)</h2>
+    <p>클라우드 동기화는 선택적 기능이며, 활성화하려면 Google 계정으로 로그인이 필요합니다.</p>
+    <ul>
+      <li>동기화를 활성화하면 단어 및 학습 데이터가 Firebase(Google)에 암호화되어 저장됩니다.</li>
+      <li>저장된 데이터는 사용자의 Google 계정에 연결되며, 동일 계정으로 로그인한 다른 기기에서 접근할 수 있습니다.</li>
+      <li>로그아웃 시 클라우드 연결이 해제되며, 로컬 데이터는 유지됩니다.</li>
+      <li>Firebase 데이터 처리에 관한 자세한 사항은 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Firebase 개인정보처리방침</a>을 참조하세요.</li>
+    </ul>
+
+    <!-- 3. AI 분석 기능 -->
+    <h2>3. AI 분석 기능 (Google Gemini)</h2>
+    <div class="highlight-box">
+      <p>
+        <span class="badge warning">중요</span>
+        AI 페이지 분석 기능은 사용자가 직접 "분석 시작" 버튼을 클릭할 때만 동작합니다.
+        자동으로 페이지 내용을 수집하거나 전송하지 않습니다.
+      </p>
+    </div>
+    <p>AI 분석 기능 사용 시 다음 사항을 유의하세요.</p>
+    <ul>
+      <li>분석 시작 버튼 클릭 시, 현재 페이지의 텍스트 내용이 Google Gemini API로 전송됩니다.</li>
+      <li>전송된 텍스트는 단어 추천 분석 후 즉시 처리되며, CatchVoca 서버에 저장되지 않습니다.</li>
+      <li>Google의 AI 모델 정책에 따라 전송된 데이터가 처리될 수 있습니다. 자세한 사항은 <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google 개인정보처리방침</a>을 참조하세요.</li>
+      <li>개인 정보가 포함된 페이지에서 AI 분석 기능 사용 시 주의하시기 바랍니다.</li>
+    </ul>
+
+    <!-- 4. 모바일 퀴즈 기능 -->
+    <h2>4. 모바일 퀴즈 기능</h2>
+    <p>모바일 퀴즈 링크를 생성할 때 다음과 같이 데이터가 처리됩니다.</p>
+    <ul>
+      <li>복습 대상 단어 목록이 Firebase에 임시 업로드됩니다.</li>
+      <li>생성된 링크는 일정 시간 후 자동으로 만료되며, 만료된 데이터는 삭제됩니다.</li>
+      <li>모바일 퀴즈 완료 후 학습 결과가 확장 프로그램으로 동기화되고, Firebase의 임시 데이터는 삭제됩니다.</li>
+    </ul>
+
+    <!-- 5. 제3자 공유 -->
+    <h2>5. 제3자 정보 공유</h2>
+    <div class="highlight-box">
+      <p>
+        <span class="badge">원칙</span>
+        CatchVoca는 사용자의 개인 데이터를 제3자에게 판매하거나 공유하지 않습니다.
+      </p>
+    </div>
+    <p>단, 다음의 경우 외부 서비스와 데이터가 연동됩니다.</p>
+    <ul>
+      <li><strong>Google Firebase</strong>: 클라우드 동기화 및 모바일 퀴즈 기능 (사용자 동의 시)</li>
+      <li><strong>Google Gemini API</strong>: AI 분석 기능 (사용자가 버튼 클릭 시)</li>
+      <li><strong>사전 API</strong>: 단어 뜻 조회 시 단어 텍스트만 전송 (Naver Dictionary, Free Dictionary API)</li>
+    </ul>
+    <p>법적 요구, 사기 방지, 서비스 보호를 위해 필요한 경우 관련 법령에 따라 공개될 수 있습니다.</p>
+
+    <!-- 6. 쿠키 -->
+    <h2>6. 쿠키 및 추적 기술</h2>
+    <p>CatchVoca 확장 프로그램은 쿠키를 사용하지 않습니다.</p>
+    <p>사용자 활동을 추적하는 광고 네트워크 또는 분석 도구를 통한 추적을 수행하지 않습니다. 앱 내 데이터는 Chrome의 <code>chrome.storage.local</code> 및 브라우저 내 IndexedDB에만 저장됩니다.</p>
+
+    <!-- 7. 데이터 보관 및 삭제 -->
+    <h2>7. 데이터 보관 및 삭제</h2>
+    <ul>
+      <li>로컬 데이터(단어, 복습 상태, 설정)는 사용자가 확장 프로그램을 삭제할 때까지 기기에 보관됩니다.</li>
+      <li>확장 프로그램 제거 시 모든 로컬 데이터가 삭제됩니다.</li>
+      <li>클라우드 동기화 사용 시, 계정 삭제 또는 클라우드 데이터 삭제 요청으로 Firebase 저장 데이터를 삭제할 수 있습니다.</li>
+      <li>데이터 삭제 요청은 아래 연락처로 문의하세요.</li>
+    </ul>
+
+    <!-- 8. 아동 개인정보 -->
+    <h2>8. 아동 개인정보 보호</h2>
+    <p>CatchVoca는 만 14세 미만 아동을 대상으로 하지 않습니다. 만 14세 미만 사용자는 보호자의 동의 하에 서비스를 이용해야 합니다. 아동의 개인정보가 무단으로 수집되었음을 발견한 경우, 즉시 삭제 조치를 취합니다.</p>
+
+    <!-- 9. 보안 -->
+    <h2>9. 개인정보 보안</h2>
+    <ul>
+      <li>모든 외부 API 통신은 HTTPS(TLS)를 통해 암호화됩니다.</li>
+      <li>Firebase에 저장되는 데이터는 Firebase Security Rules에 의해 사용자별로 접근이 제한됩니다.</li>
+      <li>로컬 데이터는 Chrome의 보안 모델에 의해 다른 확장 프로그램 및 웹사이트로부터 격리됩니다.</li>
+    </ul>
+
+    <!-- 10. 방침 변경 -->
+    <h2>10. 개인정보처리방침 변경</h2>
+    <p>본 방침은 변경될 수 있습니다. 중요한 변경 사항이 있을 경우, 확장 프로그램 업데이트 시 안내드리거나 이 페이지에 공지합니다. 변경된 방침은 게시 즉시 효력이 발생합니다.</p>
+    <p>최신 방침은 이 페이지에서 항상 확인하실 수 있습니다.</p>
+
+    <!-- 11. 문의 -->
+    <h2>11. 문의하기</h2>
+    <p>개인정보 처리에 관한 문의, 열람·정정·삭제 요청 및 불만 사항은 아래로 연락해 주세요.</p>
+    <div class="contact-box">
+      <p><strong>서비스명</strong>: CatchVoca</p>
+      <p><strong>개발</strong>: ssuksak</p>
+      <p><strong>이메일</strong>: <a href="mailto:projecth1218@gmail.com">projecth1218@gmail.com</a></p>
+      <p style="margin-top: 8px; font-size: 13px; color: #6B7280;">문의 주신 내용은 영업일 기준 3일 이내에 답변 드립니다.</p>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 CatchVoca. All rights reserved.</p>
+      <p style="margin-top: 4px;">본 방침은 대한민국 개인정보 보호법 및 관련 법령을 준수합니다.</p>
+    </footer>
+  </div>
+</body>
+</html>
